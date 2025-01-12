@@ -1,4 +1,4 @@
-ticker = 'AAPL' # Ticker symbol. Should be in all caps
+ticker = 'GOOGL' # Ticker symbol. Should be in all caps
 iterations = 1000 # Number of iterations. 50 takes about a minute
 
 import numpy as np
@@ -71,7 +71,7 @@ if __name__ == "__main__":
         model.load_weights(weights_file)
     else:
         print(f"Training new model with {iterations} iterations. This will take approximately {round(iterations/60)} minutes.")
-        model.fit(X, y, epochs=iterations, batch_size=32, verbose=1)
+        model.fit(X, y, epochs=iterations, batch_size=32, verbose=0)
         model.save_weights(weights_file)
 
     # Make predictions
