@@ -1,4 +1,5 @@
 ticker = 'GOOG' # Ticker symbol. Should be in all caps
+iterations = 1000
 
 import numpy as np
 import pandas as pd
@@ -64,14 +65,15 @@ if __name__ == "__main__":
     ])
     model.compile(optimizer='adam', loss='mean_squared_error')
 
-    # Check for existing weights
+    # Training
     weights_file = f'lstm_{ticker}.weights.h5'  # Fixed filename format
-    try:
-        os.path.exists(weights_file):
-        print(f"Loading existing weights from {weights_file}")
-        model.load_weights(weights_file)
-    except FileNotFoundError:
-        print(f"The weights for {ticker} could not be found. Please ensure that a file with the file name 'ltsm_{ticker}.weights.h5' exists.")
+    os.system('clear')
+    print(f"Training {ticker} model with {iterations} iterations. This might take a while.")
+    train_start = time.time()
+    model.fit(X, y, epochs=iterations, batch_size=32, verbose=0)
+    model.save_weights(weights_file)
+    train_end = time.time()
+    print(f"Finished training in {(train_end-train_start)/60} minutes.")
 
     # Make predictions
     print("Making predictions. This shouldn't take too long.")
