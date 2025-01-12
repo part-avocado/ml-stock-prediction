@@ -1,5 +1,6 @@
 ticker = 'GOOG' # Ticker symbol. Should be in all caps
 iterations = 1000
+verbosity = 0 # Set to 1 to see training progress
 
 import numpy as np
 import pandas as pd
@@ -70,7 +71,7 @@ if __name__ == "__main__":
     os.system('clear')
     print(f"Training {ticker} model with {iterations} iterations. This might take a while.")
     train_start = time.time()
-    model.fit(X, y, epochs=iterations, batch_size=32, verbose=0)
+    model.fit(X, y, epochs=iterations, batch_size=32, verbose=verbosity)
     model.save_weights(weights_file)
     train_end = time.time()
     print(f"Finished training in {(train_end-train_start)/60} minutes.")
