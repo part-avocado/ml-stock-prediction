@@ -1,4 +1,4 @@
-ticker = 'TSLA' # Ticker symbol. Should be in all caps
+ticker = 'GOOG' # Ticker symbol. Should be in all caps
 iterations = 1000 # Number of iterations. 50 takes about a minute
 
 import numpy as np
