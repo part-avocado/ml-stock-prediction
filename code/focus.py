@@ -76,6 +76,7 @@ if __name__ == "__main__":
         model.save_weights(weights_file)
 
     # Make predictions
+    print("Making predictions. This shouldn't take too long.")
     predicted_prices = model.predict(X, verbose=0)
     predicted_prices = scaler.inverse_transform(predicted_prices)
 
