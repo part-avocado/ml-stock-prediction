@@ -4,9 +4,9 @@ A machine learning stock predictor that automatically downloads historical stock
 
 ## How to Use
 1. Ensure that you are in the `results` folder before running any code.
-2. TO TRAIN:
-    * Open `train.py` and change the `ticker` value to the stock. (This should be the one on Yahoo! Finance)
-    * Optional: change the `iterations` value to another number. 1000 takes about 10 minutes.
-2. TO PREDICT:
-    * Ensure that the ticker exists in the folder `results`
-    * Open `read.py`and change the `ticker` value to the desired stock
+TO TRAIN:
+ * Open `train.py` and change the `ticker` value to the stock. (This should be the one on Yahoo! Finance)
+ * Optional: change the `iterations` value to another number. 1000 takes about 10 minutes.
+TO PREDICT:
+ * Ensure that the ticker exists in the folder `results`
+ * Open `read.py`and change the `ticker` value to the desired stock
