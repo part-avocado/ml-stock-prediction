@@ -1,4 +1,4 @@
-ticker = 'GOOG' # Ticker symbol. Should be in all caps
+ticker = 'TSLA' # Ticker symbol. Should be in all caps
 
 import numpy as np
 import pandas as pd
@@ -66,14 +66,17 @@ if __name__ == "__main__":
 
     # Reading weights
     weights_file = f'lstm_{ticker}.weights.h5'  # Fixed filename format
+    os.system('clear')
     try:
-        os.path.exists(weights_file):
+        path_to_file = f'/results/ltsm_{ticker}.weights.h5'
         print(f"Loading existing weights from {weights_file}")
         model.load_weights(weights_file)
     except FileNotFoundError:
         print(f"The weights for {ticker} could not be found. Please ensure that a file with the file name 'ltsm_{ticker}.weights.h5' exists.")
+        exit(1)
 
     # Make predictions
+    os.system('clear')
     print("Making predictions. This shouldn't take too long.")
     predict_start = time.time()
     predicted_prices = model.predict(X, verbose=0)
