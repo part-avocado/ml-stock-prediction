@@ -70,11 +70,13 @@ if __name__ == "__main__":
         print(f"Loading existing weights from {weights_file}")
         model.load_weights(weights_file)
     else:
+        os.system('clear')
         print(f"Training new model with {iterations} iterations. This will take approximately {round(iterations/60)} minutes.")
         model.fit(X, y, epochs=iterations, batch_size=32, verbose=0)
         model.save_weights(weights_file)
 
     # Make predictions
+    print("Making predictions. This shouldn't take too long.")
     predicted_prices = model.predict(X, verbose=0)
     predicted_prices = scaler.inverse_transform(predicted_prices)
 
