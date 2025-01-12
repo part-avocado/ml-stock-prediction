@@ -12,3 +12,18 @@ TO TRAIN:
 TO PREDICT:
  * Ensure that the ticker exists in the folder `results`
  * Open `read.py`and change the `ticker` value to the desired stock
+
+
+## Help Wanted
+- UI that: 
+    - Calls data from GitHub (here)
+    - Predicts data from the .weights.h5 file
+    - Displays data
+
+- For `train.py` and `read.py`:
+    - Automatic searching and writing to the folder `results`
+
+- AI Suggestion Assistant
+    - Data extraction from Yahoo! Finanace for a ticker from the past 5 years
+    - Data viewing for the predictions (csv files)
+    - Making suggestions for what stocks to buy or sell based on this info.
