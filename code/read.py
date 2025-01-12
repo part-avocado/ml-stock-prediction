@@ -1,4 +1,8 @@
-ticker = 'TSLA' # Ticker symbol. Should be in all caps
+ticker = 'TSLA'
+interations = 1000  # Please make sure that this is the same number as the filename
+                    # eg. ltsm_TSLA_1000.weights.h5 would be:
+                    # ticker = 'TSLA'
+                    # iterations = 1000
 
 import numpy as np
 import pandas as pd
@@ -65,7 +69,7 @@ if __name__ == "__main__":
     model.compile(optimizer='adam', loss='mean_squared_error')
 
     # Reading weights
-    weights_file = f'lstm_{ticker}.weights.h5'  # Fixed filename format
+    weights_file = f'lstm_{ticker}_{interations}.weights.h5'  # Fixed filename format
     os.system('clear')
     try:
         path_to_file = f'/results/ltsm_{ticker}.weights.h5'
@@ -96,7 +100,7 @@ if __name__ == "__main__":
         'Predicted_Price': future_predictions.flatten()
     })
     
-    output_file = f'{ticker}_6_month_predictions.csv'
+    output_file = f'{ticker}_{interations}_prediction.csv'
     future_df.to_csv(output_file, index=False)
     print(f"Predictions saved to {output_file}")
 

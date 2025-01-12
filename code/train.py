@@ -1,6 +1,6 @@
-ticker = 'GOOG' # Ticker symbol. Should be in all caps
-iterations = 1000
-verbosity = 0 # Set to 1 to see training progress
+ticker = 'GOOG'     # Ticker symbol. Should be in all caps
+iterations = 1000   # Number of epochs to train the model; increase for better results, but might take longer
+verbosity = 0       # Set to 1 to see training progress
 
 import numpy as np
 import pandas as pd
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     model.compile(optimizer='adam', loss='mean_squared_error')
 
     # Training
-    weights_file = f'lstm_{ticker}.weights.h5'  # Fixed filename format
+    weights_file = f'lstm_{ticker}_{iterations}.weights.h5'  # Fixed filename format
     os.system('clear')
     print(f"Training {ticker} model with {iterations} iterations. This might take a while.")
     train_start = time.time()
@@ -96,7 +96,7 @@ if __name__ == "__main__":
         'Predicted_Price': future_predictions.flatten()
     })
     
-    output_file = f'{ticker}_6_month_predictions.csv'
+    output_file = f'{ticker}_{iterations}_prediction.csv'
     future_df.to_csv(output_file, index=False)
     print(f"Predictions saved to {output_file}")
 
